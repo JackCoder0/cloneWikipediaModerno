@@ -1,5 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+    padding-left: 1px;
+}
+a{
+    text-decoration: none;
+}
+p{
+    margin: 16px 0;
+}
+h1{
+    margin: 24px 0;
+}
 :root{
-
+    --header-color: #1965ac;
+    --search-color: #1e79ce;
+    --bg-color: #080d14;
+    --font-color: #e6e6e6;
+    --table-color: #3d4146;
+}
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x:hidden;
+    scroll-behavior: smooth;
 }
 
 @font-face {
@@ -8,29 +36,97 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Sora:wght@300&display=swap');
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x:hidden;
-    scroll-behavior: smooth;
+/*HEADER*/
+
+header{
+    background-color: #1965AC;
+    width: 100%;
 }
-ul { list-style: none;
-    padding-left: 1px; 
-}
-a { color:blue;
-    text-decoration: none;
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
-/*======================================================= Barra de Pesquisa =======================================================================*/
-.bar {
-    background-color: #1e79ce;
-    padding:15px;
+.logo, .social-media{
+    width: 25%;
+}
+.logo img{
+    width: 200px;
+    cursor: pointer;
+}
+
+.menu{
+    width: 70%;
+}
+.menu a{
+    color: white;
+    text-decoration: none;
+    padding-right: 50px;
+    font-size: 18px;
+    position: relative;
+    font-family: 'Sora', sans-serif;
+}
+.menu nav a::after{
+    content: "";
+    width: 0px;
+    height: 4px;
+    background-image: linear-gradient(45deg, #000000, #000000);
+    position: absolute;
+    top: 30px;
+    left: 0;
+    transition: width 0.5s;
+}
+.menu nav a:hover::after{
+    width: 45px;
+}
+
+.social-media{
+    display: flex;
+    justify-content: flex-end;
+}
+.social-media .social-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    transition: all 0.4s;
+}
+.social-media .social-link:hover{
+    opacity: 0.8;
+}
+#instagram{
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+#github{
+    background: #171515;
+}
+#linkedin{
+    background-color: #0d559c;
+}
+#youtube{
+    background: #ff0909;
+}
+.social-media .social-link i{
+    font-size: 25px;
+    text-align: center;
+}
+
+/*SEARCH BAR*/
+
+.bar{
+    background-color: var(--search-color);
+    padding: 15px;
     border-top: solid 1px black;
     border-bottom: solid 1px black;
     background-image: radial-gradient(circle, rgba(31,125,213,1) 0%, rgba(25,101,172,1) 50%, rgba(27,51,106,1) 100%);
 }
-.search, .search-bar{
+.search-bar, .search{
     display: flex;
     justify-content: center;
     border-radius: 50px;
@@ -39,11 +135,11 @@ a { color:blue;
 .search input[type="text"]{
     padding: 10px;
     border: 2px solid #ccc;
-    border-radius: 10px;
+    border-radius: 16px;
     font-size: 16px;
     width: 500px;
 }
-.search #button{
+.search button{
     display: inline-block;
     outline: 0;
     cursor: pointer;
@@ -53,86 +149,29 @@ a { color:blue;
     min-height: 30px;
     min-width: 30px;
     color: white;
-    background: #1e79ce;
+    background: var(--search-color);
     border-radius: 4px;
     font-weight: 500;
     font-size: 14px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
 }
-.search #button:hover{
+.search button:hover{
     background: #114270;
 }
 
-/*=========================================================== Header =========================================================================*/
-.header{
-    background-color: #1965AC;
-    width: 100%;
-}
-.container{
-    max-width: 1450px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+/*LEFT MENU*/
 
-}
-.logo, .social{
-    width: 25%;
-}
-.logo img{
-    width: 200px;
-    cursor: pointer;
-}
-.menu{
-    width: 70%;
-}
-.menu nav a::after{
-    content: "";
-    width: 0px;
-    height: 4px;
-    background-image: linear-gradient(45deg, #1F7CD5, #100f0d);
-    position: absolute;
-    top: 30px;
-    left: 0;
-    transition: width 0.5s;
-}
-.menu nav a:hover::after{
-    width: 45px;
-}
-.menu nav a{
-    color: white;
-    text-decoration: none;
-    padding-right: 50px;
-    font-size: 18px;
-    position: relative;
-    font-family: 'Sora', sans-serif;
-}
-.social button{
-    width: 40px;
-    height: 40px;
-    background-image: linear-gradient(45deg, #1F7CD5, #100f0d);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-right: 10px;
-    color: white;
-}
-.social button i{
-    font-size: 25px;
-    color: white;
-}
-/*========================================================= Barra Lateral =========================================================================*/
-.sidebar {
-    background-color: #080d14;
+.side-bar{
+    background-color: var(--bg-color);
 }
 .toc{
     background-color: transparent;
-    border: 1px solid #3d4146;
+    border: 1px solid var(--table-color);
     border-radius: 10px;
     font-size: 100%;
     margin: 5px;
 }
-.toctogglecheckbox{
+.toctoggle{
     position: absolute;
     opacity: 0;
 }
@@ -141,7 +180,7 @@ a { color:blue;
 }
 .toc .toctitle h2{
     align-items: center;
-    color: #e6e6e6;
+    color: var(--font-color);
     font-family: inherit;
     font-size: inherit;
     font-weight: 500;
@@ -154,7 +193,7 @@ a { color:blue;
 }
 .toc ul li a{
     border-radius: 3px;
-    color: #e6e6e6;
+    color: var(--font-color);
     display: block;
     line-height: 1.75;
     padding: 2px 5px;
@@ -164,41 +203,61 @@ a { color:blue;
     margin-left: 12px;
     overflow-wrap: break-word;
 }
-/*========================================================= Conteúdo =========================================================================*/
+
+/*CONTENT*/
+
+.content{
+    margin: auto;
+    grid-gap: 1rem;
+    display: grid;
+    gap: 1rem;
+    background-color: #16202e;
+    grid-template-areas: "sidebar main anchors";
+    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
+    text-align: justify;
+    color: #e6e6e6;
+}
+
 .main article h1{
     text-align: center;
     font-size: 30px;
     font-family: berserker;
+    margin: 24px 0px;
 }
-figure {
+figure{
     text-align: center;
+    margin: 16px 40px;
 }
-.main article p{
+main p{
     text-align: justify;
 }
-.nav-table h2{
-    text-align: center;
-}
-.row-table{
+
+/*INFO TABLE*/
+
+.nav-table{
     text-align: center;
     color: white;
 }
-.table-lateral{
-    width: 200px;
-    border: 1px solid #3d4146;
-    border-radius: 5.5px;
-    box-sizing: border-box;
+section{
     background-color: #080d14;
 }
+.table-lateral{
+    width: 200px;
+    border: 1px solid var(--table-color);
+    border-radius: 5.5px;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    margin: 5px;
+}
 .table-lateral th{
-    color: #e6e6e6;
-    border-bottom: 1px solid #3d4146;
+    color: var(--font-color);
+    border-bottom: 1px solid var(--table-color);
     padding: 0;
     margin: 0 auto;
 }
 .table-lateral td{
-    color: #e6e6e6;
-    border-bottom: 1px solid #3d4146;
+    color: var(--font-color);
+    border-bottom: 1px solid var(--table-color);
     padding: 0;
     margin: 0 auto;
 }
@@ -206,6 +265,71 @@ figure {
     background-color: #486572;
     font-weight: 500;
 }
+
+/*FOOTER*/
+
+footer{
+    border-top: 1px solid var(--font-color);
+    background-color: var(--bg-color);
+    margin: 0 auto;
+    box-sizing: border-box;
+    color: var(--font-color);
+    font-size: 15px;
+}
+.logo-footer img{
+    width: 150px;
+}
+footer p{
+    margin: 0 auto;
+}
+footer h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+footer p, #footer-copyright{
+    text-align: center;
+}
+.footer-social-media{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.footer-social-media .social-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    transition: all 0.4s;
+}
+.footer-social-media .social-link:hover{
+    opacity: 0.8;
+}
+#instagram{
+    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+}
+#github{
+    background: #171515;
+}
+#linkedin{
+    background-color: #0d559c;
+}
+#youtube{
+    background: #ff0909;
+}
+.social-media .social-link{
+    font-size: 25px;
+    text-align: center;
+}
+.uil{
+    font-size: 25px;
+}
+
 /*========================================================= Padrão do Site ========================================================================*/
 section{
     background-color: #080d14;
@@ -221,31 +345,6 @@ section{
     grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
     text-align: justify;
     color: #e6e6e6;
-}
-footer{
-    background-color: #080d14;
-    width: 1440px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    color: #e6e6e6;
-    font-size: 15px;
-}
-.social-footer{
-    display: flex;
-}
-.social-footer button{
-    width: 40px;
-    height: 40px;
-    background-image: linear-gradient(45deg, #1F7CD5, #100f0d);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-right: 10px;
-    color: white;
-}
-.social-footer button i{
-    font-size: 25px;
-    color: white;
 }
 /*========================================================= Plot =========================================================================*/
 .contents a{
