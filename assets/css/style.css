@@ -1,7 +1,6 @@
 *{
     padding: 0;
     margin: 0;
-    border: 0;
     box-sizing: border-box;
 }
 ul{
@@ -39,7 +38,7 @@ body, html {
 /*HEADER*/
 
 header{
-    background-color: #1965AC;
+    background-color: var(--header-color);
     width: 100%;
 }
 .container{
@@ -355,12 +354,16 @@ section{
     margin-left: 0;
 }
 
+.content h3{
+    margin-bottom: 10px;
+}
 h4{
     text-align: center;
 }
 
 hr{
-    border-color: #3d4146;
+    border-color: var(--table-color);
+    margin: 8px 0px;
 }
 /*========================================================= Characters =========================================================================*/
 .characters ul{
@@ -372,6 +375,9 @@ hr{
     margin: 0;
     padding-top: 0;
     font-family: berserker;
+}
+.characters ul li p{
+    margin-bottom: 5px;
 }
 .characters .containe ul{
     display: flex;
