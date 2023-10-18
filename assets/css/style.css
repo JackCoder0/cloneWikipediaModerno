@@ -24,6 +24,7 @@ h1{
     --table-color: #3d4146;
 }
 body, html {
+    width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x:hidden;
     scroll-behavior: smooth;
